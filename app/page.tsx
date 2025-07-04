@@ -80,9 +80,9 @@ export default function HomePage() {
       <EnhancedMatrix showWaves showGlitches interactive={false} theme="blue" className="opacity-15" />
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center py-20">
+      <section className="py-24 bg-gradient-to-br from-primary/10 to-secondary/10 relative overflow-hidden">
         <RadialGlow intensity="high" className="absolute inset-0" />
-        <div className="absolute inset-0 grid-pattern opacity-20" />
+        <div className="absolute inset-0 grid-pattern opacity-20" />        
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -176,57 +176,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-16 relative">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <StaggerContainer className="grid grid-cols-2 lg:grid-cols-4 gap-8" staggerDelay={0.1}>
-            {stats.map((stat, index) => (
-              <NeonCard key={index} className="text-center p-6 group hover:scale-105 transition-transform duration-300">
-                <stat.icon className="h-8 w-8 text-neon mx-auto mb-4 group-hover:animate-bounce" />
-                <div className="text-3xl font-bold text-neon mb-2">{stat.number}</div>
-                <div className="text-sm text-text-secondary">{stat.label}</div>
-              </NeonCard>
-            ))}
-          </StaggerContainer>
-        </div>
-      </section>
-
-      {/* Skills Preview */}
-      <section className="py-20 relative">
-        <RadialGlow intensity="medium" className="absolute inset-0" />
-
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeIn className="text-center space-y-4 mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold">
-              My <NeonText color="primary">Expertise</NeonText>
-            </h2>
-            <p className="text-lg text-text-secondary max-w-2xl mx-auto">
-              Technologies and skills I've mastered to deliver exceptional results
-            </p>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <StaggerContainer staggerDelay={0.1}>
-              {skills.map((skill) => (
-                <NeonCard key={skill.name} className="p-6 group">
-                  <div className="flex items-center space-x-4 mb-4">
-                    <skill.icon className="h-6 w-6 text-neon group-hover:animate-pulse" />
-                    <span className="font-semibold text-white">{skill.name}</span>
-                    <span className="ml-auto text-neon font-mono">{skill.level}%</span>
-                  </div>
-                  <div className="w-full bg-background/50 rounded-full h-2 overflow-hidden">
-                    <div
-                      className="h-full bg-gradient-to-r from-neon to-neon-accent rounded-full transition-all duration-1000 ease-out"
-                      style={{ width: `${skill.level}%` }}
-                    />
-                  </div>
-                </NeonCard>
-              ))}
-            </StaggerContainer>
-          </div>
-        </div>
-      </section>
-
+    
       {/* Featured Projects */}
       <section className="py-20 relative">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
