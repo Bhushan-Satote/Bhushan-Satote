@@ -64,7 +64,7 @@ export function EnhancedTypewriter({
   return (
     <span className={cn("inline-block", className)}>
       {staticTextPosition === "before" && staticText && <span className="mr-1">{staticText}</span>}
-      <span className="text-neon font-semibold neon-text">{currentText}</span>
+      <span className="text-neon font-semibold neon-text-soft">{currentText}</span>
       <span className={cn("ml-1 text-neon", showCursor ? "opacity-100" : "opacity-0")}>|</span>
       {staticTextPosition === "after" && staticText && <span className="ml-1 text-text-secondary">{staticText}</span>}
     </span>

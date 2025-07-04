@@ -1,3 +1,4 @@
+"use client";
 import { CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import Link from "next/link"
@@ -101,9 +102,9 @@ export default function HomePage() {
                 <div className="space-y-4">
                   <p className="text-neon text-lg font-mono tracking-wide">Hello, I'm</p>
                   <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
-                    <span className="text-white">John</span>{" "}
-                    <span className="bg-gradient-to-r from-neon via-neon-accent to-neon-secondary bg-clip-text text-transparent">
-                      Doe
+                    <span className="text-white">Bhushan </span>{""}
+                    <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-500 bg-clip-text text-transparent">
+                       Satote
                     </span>
                   </h1>
                   <div className="text-xl sm:text-2xl text-text-secondary font-medium h-16 flex items-center">
@@ -170,12 +171,7 @@ export default function HomePage() {
               </FadeIn>
             </div>
 
-            {/* Right Avatar */}
-            <FadeIn direction="right" delay={0.8}>
-              <div className="flex justify-center lg:justify-end">
-                <DeveloperAvatar className="scale-90 lg:scale-100" />
-              </div>
-            </FadeIn>
+            {/* Right Avatar Removed */}
           </div>
         </div>
       </section>
@@ -315,8 +311,8 @@ export default function HomePage() {
           <FadeIn className="max-w-3xl mx-auto space-y-8">
             <h2 className="text-3xl sm:text-5xl font-bold leading-tight">
               Ready to Start Your Next{" "}
-              <NeonText animated color="primary" className="block sm:inline">
-                Amazing Project
+              <NeonText >
+              Amazing Project
               </NeonText>
               ?
             </h2>
@@ -341,20 +337,13 @@ export default function HomePage() {
           </FadeIn>
         </div>
 
-        {/* Enhanced Floating Particles */}
-        <div className="absolute top-10 left-10 w-3 h-3 bg-neon rounded-full floating-particle neon-glow opacity-60" />
-        <div
-          className="absolute top-20 right-20 w-2 h-2 bg-neon-secondary rounded-full floating-particle neon-glow opacity-50"
-          style={{ animationDelay: "-1s" }}
-        />
-        <div
-          className="absolute bottom-20 left-1/4 w-2.5 h-2.5 bg-neon-accent rounded-full floating-particle neon-glow opacity-70"
-          style={{ animationDelay: "-2s" }}
-        />
-        <div
-          className="absolute bottom-10 right-1/3 w-1.5 h-1.5 bg-neon rounded-full floating-particle neon-glow opacity-40"
-          style={{ animationDelay: "-0.5s" }}
-        />
+        {/* Animated Background Circles */}
+        <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden">
+          <div className="absolute left-[10%] top-[20%] w-32 h-32 bg-cyan-400/20 rounded-full blur-2xl animate-bg-circle-1" />
+          <div className="absolute right-[15%] top-[30%] w-40 h-40 bg-blue-500/20 rounded-full blur-2xl animate-bg-circle-2" />
+          <div className="absolute left-[30%] bottom-[15%] w-24 h-24 bg-purple-500/20 rounded-full blur-2xl animate-bg-circle-3" />
+          <div className="absolute right-[25%] bottom-[20%] w-28 h-28 bg-neon-accent/20 rounded-full blur-2xl animate-bg-circle-4" />
+        </div>
       </section>
     </div>
   )

@@ -133,6 +133,11 @@
   text-shadow: 0 0 5px var(--neon-primary), 0 0 10px var(--neon-primary), 0 0 15px var(--neon-primary);
 }
 
+.neon-text-soft {
+  color: var(--neon-primary);
+  text-shadow: 0 0 2px var(--neon-primary), 0 0 4px rgba(0,191,255,0.2);
+}
+
 .neon-border {
   border: 1px solid var(--neon-primary);
   box-shadow: inset 0 0 10px rgba(0, 191, 255, 0.1), 0 0 10px rgba(0, 191, 255, 0.2);
@@ -187,11 +192,10 @@
 @keyframes neonPulse {
   0%,
   100% {
-    box-shadow: 0 0 5px var(--neon-primary), 0 0 10px var(--neon-primary), 0 0 15px var(--neon-primary);
+    box-shadow: 0 0 1px rgba(0,191,255,0.3), 0 0 2px rgba(0,191,255,0.2), 0 0 3px rgba(0,191,255,0.1);
   }
   50% {
-    box-shadow: 0 0 10px var(--neon-primary), 0 0 20px var(--neon-primary), 0 0 30px var(--neon-primary), 0 0 40px
-      var(--neon-primary);
+    box-shadow: 0 0 2px rgba(0,191,255,0.2), 0 0 4px rgba(0,191,255,0.15), 0 0 6px rgba(0,191,255,0.1), 0 0 8px rgba(0,191,255,0.08);
   }
 }
 
@@ -408,8 +412,92 @@ html {
   }
 }
 
+@keyframes moveCircle1 {
+  0%   { transform: translate(10px, 0); }
+  25%  { transform: translate(0, 10px); }
+  50%  { transform: translate(-10px, 0); }
+  75%  { transform: translate(0, -10px); }
+  100% { transform: translate(10px, 0); }
+}
+@keyframes moveCircle2 {
+  0%   { transform: translate(-8px, 0); }
+  25%  { transform: translate(0, 8px); }
+  50%  { transform: translate(8px, 0); }
+  75%  { transform: translate(0, -8px); }
+  100% { transform: translate(-8px, 0); }
+}
+@keyframes moveCircle3 {
+  0%   { transform: translate(6px, 0); }
+  25%  { transform: translate(0, 6px); }
+  50%  { transform: translate(-6px, 0); }
+  75%  { transform: translate(0, -6px); }
+  100% { transform: translate(6px, 0); }
+}
+@keyframes moveCircle4 {
+  0%   { transform: translate(-12px, 0); }
+  25%  { transform: translate(0, -12px); }
+  50%  { transform: translate(12px, 0); }
+  75%  { transform: translate(0, 12px); }
+  100% { transform: translate(-12px, 0); }
+}
+
 .floating-particle {
-  animation: float 6s ease-in-out infinite;
+  /* Removed float animation for background circles to prevent blinking */
+}
+
+.floating-move-1 {
+  animation: moveCircle1 12s linear infinite;
+}
+.floating-move-2 {
+  animation: moveCircle2 14s linear infinite;
+}
+.floating-move-3 {
+  animation: moveCircle3 16s linear infinite;
+}
+.floating-move-4 {
+  animation: moveCircle4 18s linear infinite;
+}
+
+@keyframes bgCircle1 {
+  0%   { transform: translate(0, 0) scale(1); }
+  25%  { transform: translate(20px, -10px) scale(1.05); }
+  50%  { transform: translate(40px, 10px) scale(1.1); }
+  75%  { transform: translate(20px, 20px) scale(1.05); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+@keyframes bgCircle2 {
+  0%   { transform: translate(0, 0) scale(1); }
+  25%  { transform: translate(-15px, 15px) scale(1.08); }
+  50%  { transform: translate(-30px, 0px) scale(1.12); }
+  75%  { transform: translate(-15px, -15px) scale(1.08); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+@keyframes bgCircle3 {
+  0%   { transform: translate(0, 0) scale(1); }
+  25%  { transform: translate(10px, 10px) scale(1.04); }
+  50%  { transform: translate(20px, 0px) scale(1.08); }
+  75%  { transform: translate(10px, -10px) scale(1.04); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+@keyframes bgCircle4 {
+  0%   { transform: translate(0, 0) scale(1); }
+  25%  { transform: translate(-10px, -10px) scale(1.03); }
+  50%  { transform: translate(-20px, 0px) scale(1.06); }
+  75%  { transform: translate(-10px, 10px) scale(1.03); }
+  100% { transform: translate(0, 0) scale(1); }
+}
+
+.animate-bg-circle-1 {
+  animation: bgCircle1 18s ease-in-out infinite;
+}
+.animate-bg-circle-2 {
+  animation: bgCircle2 22s ease-in-out infinite;
+}
+.animate-bg-circle-3 {
+  animation: bgCircle3 20s ease-in-out infinite;
+}
+.animate-bg-circle-4 {
+  animation: bgCircle4 24s ease-in-out infinite;
 }
 
 .floating-particle:nth-child(2) {

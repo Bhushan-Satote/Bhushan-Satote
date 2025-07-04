@@ -15,9 +15,8 @@ const navigation = [
   { name: "About", href: "/about" },
   { name: "Portfolio", href: "/portfolio" },
   { name: "Services", href: "/services" },
-  { name: "Testimonials", href: "/testimonials" },
+  // { name: "Testimonials", href: "/testimonials" },
   { name: "Blog", href: "/blog" },
-  { name: "Contact", href: "/contact" },
 ]
 
 export function Navigation() {
@@ -38,41 +37,46 @@ export function Navigation() {
       className={cn(
         "fixed top-0 w-full z-50 transition-all duration-500 ease-out",
         isScrolled
-          ? "bg-background/90 backdrop-blur-xl border-b border-neon/20 shadow-[0_0_30px_rgba(0,191,255,0.1)]"
+          ? "bg-background/90 backdrop-blur-xl border-b border-border"
           : "bg-transparent",
       )}
     >
       <nav className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 group">
+          <Link href="/" className="flex items-center space-x-3 group">
             <div className="relative">
-              <Code2 className="w-8 h-8 text-neon group-hover:text-neon-accent transition-colors duration-300" />
-              <div className="absolute inset-0 bg-neon/20 rounded-full blur-lg group-hover:bg-neon-accent/30 transition-all duration-300" />
+              <Code2 className="w-9 h-9 text-neon group-hover:text-neon-accent transition-colors duration-300" />
             </div>
             <div className="flex flex-col">
-              <NeonText intensity="medium" color="primary" className="text-xl font-bold">
-                John Doe
+              <NeonText intensity="high" color="primary" className="text-2xl font-extrabold tracking-tight">
+                Bhushan Satote
               </NeonText>
-              <span className="text-xs text-text-secondary font-mono">{"<Developer />"}</span>
+              <span className="text-xs text-neon-accent font-mono tracking-widest">IT Engineer</span>
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-1">
+          <div className="hidden md:flex items-center space-x-2">
             {navigation.map((item, index) => (
               <Link
                 key={item.name}
                 href={item.href}
                 className={cn(
-                  "relative px-4 py-2 text-sm font-medium transition-all duration-300 rounded-lg group",
+                  "relative px-4 py-2 text-base font-semibold transition-all duration-300 rounded-lg group overflow-hidden active:scale-95 focus:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-neon/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                   pathname === item.href
-                    ? "text-neon bg-neon/10 shadow-[0_0_10px_rgba(0,191,255,0.3)]"
-                    : "text-text-secondary hover:text-neon hover:bg-neon/5",
+                    ? "text-neon scale-105"
+                    : "text-text-secondary hover:text-neon hover:scale-105",
                 )}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <span className="relative z-10">{item.name}</span>
+                <span className="relative z-10">
+                  {item.name}
+                  <span className={cn(
+                    "block h-0.5 bg-gradient-to-r from-neon via-neon-accent to-neon-secondary rounded transition-all duration-300 scale-x-0 group-hover:scale-x-100",
+                    pathname === item.href && "scale-x-100"
+                  )} />
+                </span>
                 {pathname === item.href && (
                   <div className="absolute inset-0 bg-gradient-to-r from-neon/20 via-neon-accent/20 to-neon-secondary/20 rounded-lg" />
                 )}
@@ -81,24 +85,22 @@ export function Navigation() {
             ))}
 
             {/* CTA Button */}
-            <div className="ml-4 pl-4 border-l border-border">
+            <div className="ml-6 pl-6 border-l border-border">
               <Button
                 asChild
-                className="bg-gradient-to-r from-neon to-neon-accent hover:from-neon-accent hover:to-neon text-background font-semibold shadow-[0_0_20px_rgba(0,191,255,0.4)] hover:shadow-[0_0_30px_rgba(0,191,255,0.6)] transition-all duration-300"
+                className="bg-gradient-to-r from-neon via-neon-accent to-neon-secondary text-background font-extrabold rounded-full px-8 py-2 text-base tracking-wide shadow-[0_0_24px_#00bfff55] hover:shadow-[0_0_36px_#00bfffcc] hover:scale-105 active:scale-95 transition-all duration-300 border-2 border-neon/60"
               >
                 <Link href="/contact">
-                  <Zap className="w-4 h-4 mr-2" />
+                  <Zap className="w-5 h-5 mr-2" />
                   Hire Me
                 </Link>
               </Button>
             </div>
 
-            <ThemeToggle />
-          </div>
+            </div>
 
           {/* Mobile Navigation */}
           <div className="md:hidden flex items-center space-x-2">
-            <ThemeToggle />
             <Sheet open={isOpen} onOpenChange={setIsOpen}>
               <SheetTrigger asChild>
                 <Button
@@ -121,10 +123,10 @@ export function Navigation() {
                   <div className="flex items-center space-x-2 pb-4 border-b border-neon/20">
                     <Code2 className="w-6 h-6 text-neon" />
                     <div className="flex flex-col">
-                      <NeonText intensity="medium" color="primary" className="text-lg font-bold">
-                        John Doe
-                      </NeonText>
-                      <span className="text-xs text-text-secondary font-mono">{"<Developer />"}</span>
+                    <NeonText intensity="high" color="primary" className="text-lg font-extrabold">
+                    Bhushan Satote
+                    </NeonText>
+                    <span className="text-xs text-neon-accent font-mono tracking-widest">IT Engineer</span>
                     </div>
                   </div>
 
@@ -135,10 +137,10 @@ export function Navigation() {
                       href={item.href}
                       onClick={() => setIsOpen(false)}
                       className={cn(
-                        "relative px-4 py-3 text-lg font-medium transition-all duration-300 rounded-lg group",
+                        "relative px-4 py-3 text-lg font-medium transition-all duration-300 rounded-lg group active:scale-95 focus:scale-95 outline-none focus-visible:ring-2 focus-visible:ring-neon/70 focus-visible:ring-offset-2 focus-visible:ring-offset-background",
                         pathname === item.href
-                          ? "text-neon bg-neon/10 shadow-[0_0_10px_rgba(0,191,255,0.3)]"
-                          : "text-text-secondary hover:text-neon hover:bg-neon/5 hover:translate-x-2",
+                          ? "text-neon"
+                          : "text-text-secondary hover:text-neon hover:translate-x-2",
                       )}
                       style={{
                         animationDelay: `${index * 0.1}s`,

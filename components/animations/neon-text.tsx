@@ -9,6 +9,7 @@ interface NeonTextProps {
   intensity?: "low" | "medium" | "high"
   animated?: boolean
   color?: "primary" | "secondary" | "accent"
+  noGlow?: boolean
 }
 
 export function NeonText({
@@ -17,6 +18,7 @@ export function NeonText({
   intensity = "medium",
   animated = false,
   color = "primary",
+  noGlow = false,
 }: NeonTextProps) {
   const getColorClasses = () => {
     switch (color) {
@@ -47,7 +49,7 @@ export function NeonText({
   }
 
   return (
-    <span className={cn(getColorClasses(), getIntensityClasses(), animated && "neon-pulse", className)}>
+    <span className={cn(getColorClasses(), !noGlow && getIntensityClasses(), animated && "neon-pulse", className)}>
       {children}
     </span>
   )

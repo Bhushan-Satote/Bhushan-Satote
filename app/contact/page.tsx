@@ -264,52 +264,6 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* FAQ Section */}
-      <section className="py-20 bg-muted/50">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center space-y-4 mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold">Frequently Asked Questions</h2>
-            <p className="text-lg text-muted-foreground">Quick answers to common questions about working with me.</p>
           </div>
-
-          <div className="max-w-3xl mx-auto space-y-6">
-            {[
-              {
-                question: "What's your typical project timeline?",
-                answer:
-                  "Project timelines vary based on complexity, but most websites take 2-6 weeks, while larger applications can take 2-6 months. I'll provide a detailed timeline during our initial consultation.",
-              },
-              {
-                question: "Do you work with clients remotely?",
-                answer:
-                  "Yes! I work with clients worldwide. I'm experienced in remote collaboration and use modern tools to ensure smooth communication throughout the project.",
-              },
-              {
-                question: "What's included in your web development service?",
-                answer:
-                  "My web development service includes responsive design, performance optimization, SEO basics, cross-browser testing, and deployment. I also provide documentation and training if needed.",
-              },
-              {
-                question: "Do you provide ongoing maintenance?",
-                answer:
-                  "Yes, I offer maintenance packages for ongoing support, updates, and improvements. We can discuss the best maintenance plan for your specific needs.",
-              },
-              {
-                question: "What technologies do you specialize in?",
-                answer:
-                  "I specialize in React, Next.js, Node.js, TypeScript, and modern web technologies. I'm always learning new tools to provide the best solutions for my clients.",
-              },
-            ].map((faq, index) => (
-              <Card key={index}>
-                <CardContent className="p-6">
-                  <h3 className="font-semibold mb-2">{faq.question}</h3>
-                  <p className="text-muted-foreground">{faq.answer}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-    </div>
   )
 }

@@ -73,8 +73,8 @@ export function DeveloperAvatar({ className, animated = true }: DeveloperAvatarP
       {/* Floating Skill Labels */}
       {skills.map((skill, index) => {
         const angle = (skill.angle + rotation * 0.3) * (Math.PI / 180)
-        const x = Math.cos(angle) * skill.radius
-        const y = Math.sin(angle) * skill.radius
+        const x = Math.round(Math.cos(angle) * skill.radius * 10) / 10;
+        const y = Math.round(Math.sin(angle) * skill.radius * 10) / 10;
 
         return (
           <div
@@ -97,52 +97,29 @@ export function DeveloperAvatar({ className, animated = true }: DeveloperAvatarP
 
       {/* Central Avatar Container */}
       <div className="relative z-10 w-36 h-36 rounded-full overflow-hidden border-4 border-neon shadow-[0_0_40px_rgba(0,191,255,0.6)]">
-        {/* Avatar Character */}
+        {/* IT Professional SVG Avatar */}
         <div className="w-full h-full bg-gradient-to-br from-purple-900 via-blue-900 to-indigo-900 flex items-center justify-center relative">
-          {/* Character SVG */}
           <svg className="w-32 h-32" viewBox="0 0 120 120" fill="none">
+            {/* Desk */}
+            <rect x="20" y="90" width="80" height="12" rx="3" fill="#222E3A" />
+            {/* Laptop */}
+            <rect x="50" y="65" width="32" height="18" rx="2" fill="#E2E8F0" stroke="#00BFFF" strokeWidth="2" />
+            <rect x="54" y="69" width="24" height="10" rx="1" fill="#CBD5E1" />
+            {/* Person */}
+            <ellipse cx="66" cy="60" rx="10" ry="13" fill="#FCD7B6" />
             {/* Head */}
-            <circle cx="60" cy="45" r="25" fill="#FDBCB4" />
-
+            <circle cx="66" cy="48" r="8" fill="#FCD7B6" />
             {/* Hair */}
-            <path
-              d="M35 35 Q45 15 60 15 Q75 15 85 35 Q87 40 82 45 L78 40 Q73 35 60 35 Q47 35 42 40 L38 45 Q33 40 35 35"
-              fill="#8B4513"
-            />
-
-            {/* Glasses Frame */}
-            <g stroke="#00BFFF" strokeWidth="2.5" fill="rgba(0,191,255,0.15)">
-              <circle cx="50" cy="42" r="9" />
-              <circle cx="70" cy="42" r="9" />
-              <line x1="59" y1="42" x2="61" y2="42" strokeWidth="2" />
-              <line x1="41" y1="42" x2="37" y2="40" strokeWidth="2" />
-              <line x1="79" y1="42" x2="83" y2="40" strokeWidth="2" />
-            </g>
-
-            {/* Eyes behind glasses */}
-            <circle cx="50" cy="42" r="3" fill="#2C3E50" />
-            <circle cx="70" cy="42" r="3" fill="#2C3E50" />
-            <circle cx="51" cy="41" r="1" fill="white" />
-            <circle cx="71" cy="41" r="1" fill="white" />
-
-            {/* Nose */}
-            <ellipse cx="60" cy="50" rx="2" ry="3" fill="#F4A460" />
-
-            {/* Smile */}
-            <path d="M52 58 Q60 65 68 58" stroke="#8B4513" strokeWidth="2.5" fill="none" strokeLinecap="round" />
-
-            {/* Beard */}
-            <path
-              d="M42 60 Q47 75 60 75 Q73 75 78 60 Q80 70 75 75 Q70 80 60 80 Q50 80 45 75 Q40 70 42 60"
-              fill="#8B4513"
-            />
-
-            {/* Shirt collar */}
-            <path d="M35 85 L85 85 L85 120 L35 120 Z" fill="white" />
-            <path d="M35 85 L85 85 L85 95 L35 95 Z" fill="#00BFFF" />
-
-            {/* Tie */}
-            <path d="M55 95 L65 95 L63 110 L57 110 Z" fill="#8A2BE2" />
+            <ellipse cx="66" cy="45" rx="8" ry="5" fill="#2D3748" />
+            {/* Shirt */}
+            <rect x="58" y="68" width="16" height="10" rx="3" fill="#3B82F6" />
+            {/* Arms */}
+            <rect x="56" y="70" width="4" height="10" rx="2" fill="#FCD7B6" />
+            <rect x="76" y="70" width="4" height="10" rx="2" fill="#FCD7B6" />
+            {/* Glasses */}
+            <ellipse cx="63.5" cy="50" rx="2" ry="1.2" fill="#fff" stroke="#00BFFF" strokeWidth="0.7" />
+            <ellipse cx="68.5" cy="50" rx="2" ry="1.2" fill="#fff" stroke="#00BFFF" strokeWidth="0.7" />
+            <rect x="65.5" y="50" width="1" height="0.5" fill="#00BFFF" />
           </svg>
         </div>
       </div>
