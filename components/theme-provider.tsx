@@ -7,5 +7,12 @@ import {
 } from 'next-themes'
 
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
-  return <NextThemesProvider {...props}>{children}</NextThemesProvider>
+  React.useEffect(() => {
+    if (typeof window !== 'undefined') {
+      document.documentElement.classList.add('dark');
+      document.documentElement.classList.remove('light');
+      localStorage.setItem('theme', 'dark');
+    }
+  }, []);
+  return <NextThemesProvider {...props} forcedTheme="dark">{children}</NextThemesProvider>;
 }
